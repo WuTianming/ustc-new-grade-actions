@@ -69,9 +69,8 @@ grades_key=[]
 max_ID=0
 first_access=True
 if ("sync" in sys.argv):
-    #  email=False
-    email=True      # 测试是否能够正常工作
-    # logger.info("Syncing data from server, no email will be sent even if there are new grades present")
+    email=False
+    logger.info("Syncing data from server, no email will be sent even if there are new grades present")
 else:
     email=True
 
