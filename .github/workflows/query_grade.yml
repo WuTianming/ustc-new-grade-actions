@@ -1,0 +1,36 @@
+name: query grade
+
+on:
+  schedule:
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
+
+jobs:
+  query:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out this repo
+      uses: actions/checkout@v2
+    - name: Set up Python 3
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run query script
+      env:
+        CAS_PASSWD: ${{ secrets.CAS_PASSWD }}
+        CAS_USERNAME: ${{ secrets.CAS_USERNAME }}
+        MAIL_HOST: ${{ secrets.MAIL_HOST }}
+        MAIL_PASSWD: ${{ secrets.MAIL_PASSWD }}
+        MAIL_SENDER: ${{ secrets.MAIL_SENDER }}
+      run: |
+        python grade.py
+    - name: Push file change to repo, if any
+      run: |
+        git config user.name "Automated"
+        git config user.email "actions@users.noreply.github.com"
+        git add -A
+        git commit -m 'Automated commit from actions' || exit 0
+        git push
