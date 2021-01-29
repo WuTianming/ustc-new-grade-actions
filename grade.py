@@ -13,7 +13,7 @@ from config import username,password
 
 logger=Log(__name__).getlog()
 
-url1='https://passport.ustc.edu.cn/login'
+url1='https://passport.ustc.edu.cn/login?service=https://jw.ustc.edu.cn/ucas-sso/login'
 url2='https://jw.ustc.edu.cn/ucas-sso/login'
 url3='https://jw.ustc.edu.cn/for-std/grade/sheet/getSemesters'
 headers={
