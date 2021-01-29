@@ -104,7 +104,7 @@ else:
     for k,v in new_grades:
         if k in new_grade_key:
             new_grade.append((k,v))
-            logger.info(k+': '+str(v))
+            logger.info(k)
     grades_key = [k for k,v in new_grades]
     grade_len=len(new_grades)
     logger.info('writing key to file...')
