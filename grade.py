@@ -26,9 +26,17 @@ pattern4=re.compile("\"score\":\"(.+?)\",")
 
 def login(s):
     logger.info('logging in...')
-    data={'username':username,'password':password}
+    data = {
+        'model':'uplogin.jsp',
+        'service':'https://jw.ustc.edu.cn/ucas-sso/login',
+        'warn':'',
+        'showCode':'',
+        'username':username,
+        'password':password,
+        'button':'',
+    }
     r1=s.post(url1,data=data,headers=headers)
-    if(r1.text==''):
+    if not '教务系统' in r1.text:
         logger.info('username or password wrong!')
         sys.exit(1)
     s.get(url2,headers=headers)
@@ -37,12 +45,10 @@ def login(s):
 def get_ID(s):
     logger.info('getting semester id...')
     GETID=s.get(url3)
-    print(GETID.text)
     IDs=GETID.text
     IDs=re.findall(pattern1,IDs)
     IDs=list(map(int,IDs))
     max_ID=max(IDs)
-    sys.exit(1)             # TODO
     return max_ID
 
 def get_grade(s,max_ID):
