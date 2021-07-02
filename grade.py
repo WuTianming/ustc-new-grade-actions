@@ -37,6 +37,7 @@ def login(s):
 def get_ID(s):
     logger.info('getting semester id...')
     GETID=s.get(url3)
+    print(GETID)
     IDs=GETID.text
     IDs=re.findall(pattern1,IDs)
     IDs=list(map(int,IDs))
