@@ -2,7 +2,7 @@ name: query grade
 
 on:
   schedule:
-    - cron: '28 * * * *'
+    - cron: '18,38,58 * * * *'
 
 jobs:
   query:
