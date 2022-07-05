@@ -15,4 +15,6 @@ use_ssl = True
 ssl_port = 465
 
 # receiver_email
-receivers = ['2300281344@qq.com','wutianming@mail.ustc.edu.cn']
+mail_qq = os.environ['MAIL_QQ']
+mail_ustc = os.environ['MAIL_USTC']
+receivers = [mail_qq, mail_ustc]

@@ -15,8 +15,10 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
+        sudo apt install tesseract-ocr unzip -y
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pillow pytesseract requests selenium
     - name: Run query script
       env:
         CAS_PASSWD: ${{ secrets.CAS_PASSWD }}
@@ -24,6 +26,8 @@ jobs:
         MAIL_HOST: ${{ secrets.MAIL_HOST }}
         MAIL_PASSWD: ${{ secrets.MAIL_PASSWD }}
         MAIL_SENDER: ${{ secrets.MAIL_SENDER }}
+        MAIL_QQ: ${{ secrets.MAIL_QQ }}
+        MAIL_USTC: ${{ secrets.MAIL_USTC }}
       run: |
         python grade.py sync
     - name: Push file change to repo, if any
