@@ -26,8 +26,8 @@ jobs:
         MAIL_HOST: ${{ secrets.MAIL_HOST }}
         MAIL_PASSWD: ${{ secrets.MAIL_PASSWD }}
         MAIL_SENDER: ${{ secrets.MAIL_SENDER }}
-        MAIL_SENDER: ${{ secrets.MAIL_QQ }}
-        MAIL_SENDER: ${{ secrets.MAIL_USTC }}
+        MAIL_QQ: ${{ secrets.MAIL_QQ }}
+        MAIL_USTC: ${{ secrets.MAIL_USTC }}
       run: |
         python grade.py sync
     - name: Push file change to repo, if any
