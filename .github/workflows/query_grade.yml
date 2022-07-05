@@ -3,6 +3,7 @@ name: query grade
 on:
   schedule:
     - cron: '18,38,58 * * * *'
+  push:
 
 jobs:
   query:
@@ -27,6 +28,9 @@ jobs:
         MAIL_HOST: ${{ secrets.MAIL_HOST }}
         MAIL_PASSWD: ${{ secrets.MAIL_PASSWD }}
         MAIL_SENDER: ${{ secrets.MAIL_SENDER }}
+        MAIL_SENDER: ${{ secrets.MAIL_SENDER }}
+        MAIL_SENDER: ${{ secrets.MAIL_QQ }}
+        MAIL_SENDER: ${{ secrets.MAIL_USTC }}
       run: |
         python grade.py
     - name: Push file change to repo, if any
