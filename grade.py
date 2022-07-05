@@ -142,7 +142,7 @@ print("first_access")
 sheet=get_grade(s,max_ID)
 
 
-if(len(sheet)==grade_len+1): # no new grade
+if((len(sheet) - 1)==grade_len+1): # no new grade
     logger.info('no new grades')
 else:
     f=open('grades_key.pickle','wb')
