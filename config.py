@@ -15,6 +15,8 @@ use_ssl = True
 ssl_port = 465
 
 # receiver_email
-mail_qq = os.environ['MAIL_QQ']
-mail_ustc = os.environ['MAIL_USTC']
-receivers = [mail_qq, mail_ustc]
+receivers = []
+if os.getenv('MAIL_QQ')
+    receivers.append(os.environ['MAIL_QQ'])
+if os.getenv('MAIL_USTC')
+    receivers.append(os.environ['MAIL_USTC'])
