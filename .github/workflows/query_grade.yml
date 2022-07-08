@@ -3,7 +3,6 @@ name: query grade
 on:
   schedule:
     - cron: '18,38,58 * * * *'
-  push:
 
 jobs:
   query:

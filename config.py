@@ -20,3 +20,5 @@ if os.getenv('MAIL_QQ'):
     receivers.append(os.environ['MAIL_QQ'])
 if os.getenv('MAIL_USTC'):
     receivers.append(os.environ['MAIL_USTC'])
+if os.getenv('MAIL_GMAIL'):
+    receivers.append(os.environ['MAIL_GMAIL'])
